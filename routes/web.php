@@ -45,5 +45,5 @@ Route::post('insert', function () {
 
     );
 
-    return  "ads";
+    return redirect()->back();
 });
