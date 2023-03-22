@@ -34,16 +34,13 @@ Route::post('delete/{id}', function ($id) {
 
     return redirect()->back();
 });
+
 Route::post('insert', function () {
 
     DB::table('tasks')->insert([
-        name => $_POST['name'],
-        created_at => now(),
-        updated_at => now()
-
-    ]
-
-    );
-
+        'name' => $_POST['name'],
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
     return redirect()->back();
 });
