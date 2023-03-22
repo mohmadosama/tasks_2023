@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('tasks', function () {
+
+Route::get('/', function () {
      //$name = "mhamad";
     // if (isset($_GET['name'])){
      //    $name = $_GET['name'];
@@ -23,6 +24,26 @@ Route::get('tasks', function () {
 
     $tasks = DB::select('select * from tasks');
 
+    return view('index',compact('tasks'));
+});
 
-    return view('taks',compact('tasks'));
+Route::post('delete/{id}', function ($id) {
+    DB::delete(
+        'delete from tasks where id = ?', [$id])
+        ;
+
+    return redirect()->back();
+});
+Route::post('insert', function () {
+
+    DB::table('tasks')->insert([
+        name => $_POST['name'],
+        created_at => now(),
+        updated_at => now()
+
+    ]
+
+    );
+
+    return  "ads";
 });
