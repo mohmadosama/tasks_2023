@@ -48,7 +48,7 @@
                     <!-- Display Validation Errors -->
                     <!-- New Task Form -->
                     <form action="insert" method="POST" class="form-horizontal">
-
+                        @csrf
                         <!-- Task Name -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Task</label>
@@ -72,10 +72,7 @@
 
             <!-- Current Tasks -->
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Current Tasks
-                    </div>
-
+                    <div class="panel-heading">Current Tasks</div>
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
